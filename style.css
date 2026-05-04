@@ -166,14 +166,14 @@ main {
 
 .home-intro p {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   color: var(--white);
   line-height: 1.65;
   margin-bottom: 2rem;
 }
 
 .home-intro p:first-child {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   color: var(--white);
 }
 
