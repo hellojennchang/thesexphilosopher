@@ -1,1 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Lexicon — Sex Philosopher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Josefin+Sans:wght@100;300;400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 
+<style>
+:root {
+  /* Shanghai Art Deco palette */
+  --bg:           #0f0d0b;
+  --bg-warm:      #141009;
+  --bg-card:      #181410;
+  --bg-card-hov:  #201a12;
+
+  --gold:         #c8a951;
+  --gold-light:   #e8cc82;
+  --gold-dim:     #7a6530;
+  --gold-pale:    #f5e9c4;
+
+  --jade:         #4a8c72;
+  --jade-light:   #6dbf9a;
+  --jade-dim:     #2a5040;
+  --jade-pale:    #c4ede0;
+
+  --maroon:       #8c2d2d;
+  --maroon-light: #c44444;
+  --maroon-dim:   #5a1a1a;
+  --maroon-pale:  #f5c4c4;
+
+  --imperial:     #5c3d7a;
+  --imperial-lt:  #9b6db5;
+  --imperial-dim: #321f44;
+
+  --cream:        #f0e4cc;
+  --cream-mid:    #c8b896;
+  --cream-dim:    #8a7a62;
+  --cream-faint:  #4a4030;
+
+  --border:       rgba(200, 169, 81, 0.14);
+  --border-hov:   rgba(200, 169, 81, 0.42);
+  --border-jade:  rgba(74, 140, 114, 0.3);
+
+  /* Section tag colors */
+  --tag-I:   var(--gold);
+  --tag-II:  var(--jade);
+  --tag-III: var(--imperial-lt);
+  --tag-IV:  var(--maroon-light);
+  --tag-V:   #b08040;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream-mid);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.75;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── WARM VIGNETTE ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(140,45,45,0.06) 0%, transparent 60%),
+              radial-gradient(ellipse at 0% 100%, rgba(74,140,114,0.05) 0%, transparent 50%),
+              radial-gradient(ellipse at 100% 50%, rgba(92,61,122,0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── GEOMETRIC LATTICE BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,169,81,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,169,81,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header, nav, main, footer { position: relative; z-index: 1; }
+
+/* ── HEADER ── */
+header {
+  text-align: center;
+  padding: 4.5rem 2rem 3.5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Lacquer panel effect */
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(140,45,45,0.08) 0%, transparent 40%),
+              linear-gradient(0deg, rgba(74,140,114,0.04) 0%, transparent 30%);
+  pointer-events: none;
+}
+
+.corner-bracket {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+.corner-bracket.tl { top: 18px; left: 18px; border-top: 1px solid var(--jade); border-left: 1px solid var(--jade); }
+.corner-bracket.tr { top: 18px; right: 18px; border-top: 1px solid var(--jade); border-right: 1px solid var(--jade); }
+.corner-bracket.bl { bottom: 18px; left: 18px; border-bottom: 1px solid var(--jade); border-left: 1px solid var(--jade); }
+.corner-bracket.br { bottom: 18px; right: 18px; border-bottom: 1px solid var(--jade); border-right: 1px solid var(--jade); }
+.corner-bracket::after {
+  content: '◆';
+  position: absolute;
+  font-size: 0.3rem;
+  color: var(--jade);
+}
+.corner-bracket.tl::after { top: -4px; left: -4px; }
+.corner-bracket.tr::after { top: -4px; right: -4px; }
+.corner-bracket.bl::after { bottom: -4px; left: -4px; }
+.corner-bracket.br::after { bottom: -4px; right: -4px; }
+
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--jade);
+  margin-bottom: 1.4rem;
+}
+
+.deco-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin: 0.8rem auto;
+  max-width: 340px;
+}
+.deco-rule::before, .deco-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+}
+.deco-rule.gold::before, .deco-rule.gold::after { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.deco-rule.jade::before, .deco-rule.jade::after { background: linear-gradient(90deg, transparent, var(--jade-dim), transparent); }
+
+.deco-diamond { width: 5px; height: 5px; transform: rotate(45deg); flex-shrink: 0; }
+.deco-diamond.gold { background: var(--gold); }
+.deco-diamond.jade { background: var(--jade-dim); }
+.deco-diamond.maroon { background: var(--maroon); }
+
+.site-title {
+  font-family: 'IM Fell English', 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  line-height: 1;
+  margin: 0.3rem 0;
+  text-shadow: 0 0 60px rgba(200,169,81,0.15);
+}
+.site-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.site-sub {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-top: 1.2rem;
+}
+
+/* ── NAV ── */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(15,13,11,0.6);
+  backdrop-filter: blur(4px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-link:hover { color: var(--gold-light); }
+.nav-link.active { color: var(--gold); border-bottom-color: var(--gold-dim); }
+
+.nav-gem {
+  width: 4px; height: 4px;
+  background: var(--maroon);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ── MAIN ── */
+main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 7rem;
+}
+
+/* ── SEARCH ── */
+.search-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.field-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--jade-dim);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.search-wrap {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-hov);
+  padding: 0.7rem 2.5rem 0.7rem 0.5rem;
+  font-family: 'IM Fell English', 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--cream);
+  outline: none;
+  text-align: center;
+  letter-spacing: 0.04em;
+  transition: border-color 0.3s;
+  caret-color: var(--gold);
+}
+.search-input::placeholder { color: var(--cream-dim); opacity: 0.45; font-style: italic; }
+.search-input:focus { border-bottom-color: var(--jade); }
+
+.search-gem {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 8px; height: 8px;
+  border: 1px solid var(--jade-dim);
+  pointer-events: none;
+  transition: border-color 0.3s;
+}
+.search-input:focus ~ .search-gem { border-color: var(--jade); background: var(--jade-dim); }
+
+/* ── FILTERS ── */
+.filter-section {
+  margin-bottom: 3rem;
+}
+
+.filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.filter-tab {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.55rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--cream-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.filter-tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1.5px;
+  transform: scaleX(0);
+  transition: transform 0.2s;
+}
+.filter-tab[data-cat="all"]::before  { background: var(--gold); }
+.filter-tab[data-cat="I"]::before   { background: var(--tag-I); }
+.filter-tab[data-cat="II"]::before  { background: var(--tag-II); }
+.filter-tab[data-cat="III"]::before { background: var(--tag-III); }
+.filter-tab[data-cat="IV"]::before  { background: var(--tag-IV); }
+.filter-tab[data-cat="V"]::before   { background: var(--tag-V); }
+
+.filter-tab:hover, .filter-tab.active {
+  border-color: var(--border-hov);
+  color: var(--gold-pale);
+  background: rgba(200,169,81,0.04);
+}
+.filter-tab.active::before, .filter-tab:hover::before { transform: scaleX(1); }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.section-header::before, .section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.section-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+.section-header-inner span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+/* ── CARD GRID ── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+/* ── ENTRY CARD ── */
+.entry-card {
+  background: var(--bg-card);
+  padding: 2.2rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+  animation: riseIn 0.35s ease both;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.entry-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.entry-card[data-cat="I"]::before   { background: linear-gradient(90deg, var(--tag-I), transparent); }
+.entry-card[data-cat="II"]::before  { background: linear-gradient(90deg, var(--tag-II), transparent); }
+.entry-card[data-cat="III"]::before { background: linear-gradient(90deg, var(--tag-III), transparent); }
+.entry-card[data-cat="IV"]::before  { background: linear-gradient(90deg, var(--tag-IV), transparent); }
+.entry-card[data-cat="V"]::before   { background: linear-gradient(90deg, var(--tag-V), transparent); }
+
+.entry-card:hover {
+  background: var(--bg-card-hov);
+}
+.entry-card:hover::before { transform: scaleX(1); }
+
+.card-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1.1rem;
+}
+.tag-gem {
+  width: 5px; height: 5px;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+.entry-card[data-cat="I"]   .tag-gem { background: var(--tag-I); }
+.entry-card[data-cat="II"]  .tag-gem { background: var(--tag-II); }
+.entry-card[data-cat="III"] .tag-gem { background: var(--tag-III); }
+.entry-card[data-cat="IV"]  .tag-gem { background: var(--tag-IV); }
+.entry-card[data-cat="V"]   .tag-gem { background: var(--tag-V); }
+
+.tag-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.card-word {
+  font-family: 'IM Fell English', 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--cream);
+  line-height: 1.05;
+  margin-bottom: 0.3rem;
+}
+
+.card-pos {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold-dim);
+  margin-bottom: 1.1rem;
+}
+
+.card-brief {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--cream-mid);
+  line-height: 1.65;
+  border-left: 1px solid var(--border-jade);
+  padding-left: 1rem;
+}
+
+.card-cta {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--jade-dim);
+  transition: color 0.2s;
+}
+.card-cta::after { content: '→'; font-size: 0.65rem; }
+.entry-card:hover .card-cta { color: var(--jade); }
+
+.new-badge {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.42rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--jade-dim);
+  color: var(--jade-pale);
+  padding: 0.2rem 0.55rem;
+  font-weight: 400;
+}
+
+/* ── NOT FOUND ── */
+.not-found {
+  display: none;
+  text-align: center;
+  padding: 5rem 2rem;
+  animation: riseIn 0.3s ease;
+}
+.not-found.show { display: block; }
+
+.nf-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--cream-dim);
+  margin-bottom: 0.8rem;
+}
+.nf-body {
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  max-width: 420px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.75;
+  font-style: italic;
+}
+
+.submit-form { max-width: 400px; margin: 0 auto; }
+.submit-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 0.65rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--cream);
+  outline: none;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s;
+  caret-color: var(--gold);
+}
+.submit-input:focus { border-color: var(--jade); }
+.submit-input::placeholder { color: var(--cream-dim); opacity: 0.45; }
+
+.submit-btn {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--jade-dim);
+  color: var(--jade);
+  padding: 0.65rem 1.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.submit-btn:hover {
+  background: rgba(74,140,114,0.07);
+  border-color: var(--jade);
+}
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,8,6,0.88);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s;
+  backdrop-filter: blur(6px);
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hov);
+  max-width: 700px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 3.2rem 3rem;
+  position: relative;
+  transform: translateY(18px) scale(0.99);
+  transition: transform 0.28s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--jade-dim) transparent;
+}
+.modal-overlay.open .modal-card { transform: translateY(0) scale(1); }
+
+/* Top color bar */
+.modal-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.modal-card[data-cat="I"]::before   { background: linear-gradient(90deg, var(--tag-I), transparent); }
+.modal-card[data-cat="II"]::before  { background: linear-gradient(90deg, var(--tag-II), transparent); }
+.modal-card[data-cat="III"]::before { background: linear-gradient(90deg, var(--tag-III), transparent); }
+.modal-card[data-cat="IV"]::before  { background: linear-gradient(90deg, var(--tag-IV), transparent); }
+.modal-card[data-cat="V"]::before   { background: linear-gradient(90deg, var(--tag-V), transparent); }
+
+/* Jade corner accent */
+.modal-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 40px; height: 40px;
+  border-bottom: 1px solid var(--jade-dim);
+  border-right: 1px solid var(--jade-dim);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.4rem; right: 1.4rem;
+  background: none;
+  border: none;
+  color: var(--cream-dim);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.modal-close:hover { color: var(--maroon-light); }
+
+.modal-cat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.8rem;
+}
+.modal-cat-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.modal-word {
+  font-family: 'IM Fell English', 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 0 40px rgba(200,169,81,0.1);
+}
+
+.modal-pos {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--gold-dim);
+  margin-bottom: 0.3rem;
+}
+
+.modal-pron {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--cream-dim);
+  margin-bottom: 2rem;
+}
+
+.modal-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 2rem 0;
+  position: relative;
+}
+.modal-divider::before {
+  content: '◆';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 0.35rem;
+  color: var(--jade-dim);
+  background: var(--bg-card);
+  padding: 0 0.6rem;
+}
+
+.modal-sec-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.5rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--jade);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.modal-sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.modal-sec { margin-bottom: 1.9rem; }
+
+.modal-brief {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.65;
+  border-left: 2px solid var(--jade-dim);
+  padding-left: 1.2rem;
+}
+
+.modal-body {
+  font-size: 0.97rem;
+  color: var(--cream-mid);
+  line-height: 1.85;
+}
+
+.also-see-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+.also-see-pill {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--border);
+  color: var(--cream-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+.also-see-pill:hover {
+  border-color: var(--jade-dim);
+  color: var(--jade-light);
+  background: rgba(74,140,114,0.06);
+}
+
+/* ── GAME SECTION ── */
+.game-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.game-panel {
+  border: 1px solid var(--border);
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Lacquer background for game */
+.game-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(140,45,45,0.05) 0%, transparent 50%),
+              linear-gradient(315deg, rgba(74,140,114,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Deco corner in game panel */
+.game-panel::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60px; height: 60px;
+  border-top: 1px solid var(--maroon-dim);
+  border-right: 1px solid var(--maroon-dim);
+}
+
+.game-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.55rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--maroon-light);
+  margin-bottom: 0.6rem;
+}
+
+.game-date {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+  margin-bottom: 2rem;
+}
+
+.game-prompt {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  margin-bottom: 0.6rem;
+}
+
+.game-def {
+  font-family: 'IM Fell English', 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  color: var(--cream);
+  max-width: 540px;
+  margin: 0 auto 2.2rem;
+  line-height: 1.6;
+}
+
+.game-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.game-opt {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.3rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--cream-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.game-opt:hover:not(:disabled) {
+  border-color: var(--gold-dim);
+  color: var(--gold-light);
+  background: rgba(200,169,81,0.04);
+}
+.game-opt.correct {
+  border-color: var(--jade);
+  color: var(--jade-light);
+  background: rgba(74,140,114,0.1);
+}
+.game-opt.wrong {
+  border-color: var(--maroon);
+  color: var(--maroon-light);
+  background: rgba(140,45,45,0.08);
+}
+.game-opt:disabled { cursor: default; }
+
+.game-result {
+  min-height: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.game-verdict {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.game-verdict.show { opacity: 1; }
+
+.game-read-link {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 300;
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--jade);
+  border: 1px solid var(--jade-dim);
+  padding: 0.5rem 1.4rem;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s;
+  opacity: 0;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.4s, background 0.2s, border-color 0.2s, color 0.2s;
+}
+.game-read-link.show {
+  opacity: 1;
+  pointer-events: all;
+}
+.game-read-link:hover {
+  background: rgba(74,140,114,0.08);
+  border-color: var(--jade);
+  color: var(--jade-light);
+}
+.game-read-link::after { content: '→'; }
+
+.game-already-played {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--cream-dim);
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* ── ABOUT ── */
+.about-wrap {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.about-pullquote {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.7;
+  border-left: 2px solid var(--maroon);
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.about-body {
+  font-size: 0.97rem;
+  color: var(--cream-mid);
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+.footer-ornament::before, .footer-ornament::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--border);
+}
+
+.footer-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 100;
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--jade-dim); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  header { padding: 3rem 1.5rem 2.5rem; }
+  main { padding: 2.5rem 1rem 5rem; }
+  .modal-card { padding: 2.2rem 1.5rem; }
+  .game-panel { padding: 2.5rem 1.5rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  nav { gap: 1rem; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="corner-bracket tl"></div>
+  <div class="corner-bracket tr"></div>
+  <div class="corner-bracket bl"></div>
+  <div class="corner-bracket br"></div>
+
+  <p class="eyebrow">sexphilosopher.com</p>
+  <div class="deco-rule gold"><div class="deco-diamond gold"></div></div>
+  <h1 class="site-title">The <em>Lexicon</em></h1>
+  <div class="deco-rule jade"><div class="deco-diamond jade"></div></div>
+  <p class="site-sub">A mostly incomplete guide to the words we keep getting wrong</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-link active" onclick="showSection('browse', this)">Browse</a>
+  <div class="nav-gem"></div>
+  <a class="nav-link" onclick="showSection('game', this)">Name That Feeling</a>
+  <div class="nav-gem"></div>
+  <a class="nav-link" onclick="showSection('about', this)">About</a>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- BROWSE -->
+  <section id="sec-browse">
+    <div class="search-section">
+      <span class="field-label">find a word</span>
+      <div class="search-wrap">
+        <input class="search-input" id="searchInput" type="text"
+          placeholder="desire, limerence, consent…"
+          oninput="handleSearch(this.value)" autocomplete="off">
+        <div class="search-gem"></div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <span class="field-label" style="text-align:center;display:block;">browse by section</span>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-cat="all" onclick="filterCat('all',this)">All Entries</button>
+        <button class="filter-tab" data-cat="I"   onclick="filterCat('I',this)">I — Relational</button>
+        <button class="filter-tab" data-cat="II"  onclick="filterCat('II',this)">II — Experiential</button>
+        <button class="filter-tab" data-cat="III" onclick="filterCat('III',this)">III — Practices</button>
+        <button class="filter-tab" data-cat="IV"  onclick="filterCat('IV',this)">IV — Anatomy</button>
+        <button class="filter-tab" data-cat="V"   onclick="filterCat('V',this)">V — Historical</button>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-header-inner">
+        <div class="deco-diamond gold"></div>
+        <span id="entry-count">15 entries</span>
+        <div class="deco-diamond maroon"></div>
+      </div>
+    </div>
+
+    <div class="card-grid" id="cardGrid"></div>
+    <div class="not-found" id="notFound">
+      <p class="nf-title">That word isn't here yet.</p>
+      <p class="nf-body">The gap is the point. If you're looking for something that doesn't exist here, that absence is worth naming. Submit it — it becomes the next entry.</p>
+      <div class="submit-form">
+        <input class="submit-input" id="submitWord" type="text" placeholder="the word you needed">
+        <input class="submit-input" id="submitWhy"  type="text" placeholder="what you were trying to say">
+        <button class="submit-btn" onclick="handleSubmit()">Submit for consideration</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <section id="sec-game" style="display:none;">
+    <div class="game-wrap">
+      <div class="game-panel">
+        <p class="game-eyebrow">Name That Feeling</p>
+        <p class="game-date" id="gameDate"></p>
+        <p class="game-prompt">What is the word for this?</p>
+        <p class="game-def" id="gameDef"></p>
+        <div class="game-options" id="gameOpts"></div>
+        <div class="game-result">
+          <p class="game-verdict" id="gameVerdict"></p>
+          <button class="game-read-link" id="gameReadLink" onclick="openEntryFromGame()">Read the full entry</button>
+        </div>
+        <div class="game-already-played" id="gameAlready" style="display:none;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="sec-about" style="display:none;">
+    <div class="about-wrap">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div class="deco-rule gold" style="max-width:200px;margin:0 auto 1.5rem;"><div class="deco-diamond gold"></div></div>
+        <h2 style="font-family:'IM Fell English',serif;font-size:2.4rem;font-weight:400;color:var(--cream);margin-bottom:1rem;">About this lexicon</h2>
+        <div class="deco-rule jade" style="max-width:200px;margin:0 auto;"><div class="deco-diamond jade"></div></div>
+      </div>
+      <p class="about-pullquote">
+        "A girl who was trying to figure out life and love and relationships and started asking a shit ton of questions. The more questions I asked, the more questions I got. Everybody had a different version, and every community had a different version — and so hence this lexicon was born."
+      </p>
+      <p class="about-body">
+        This is not a glossary. It is a philosophical map that connects ancient wisdom traditions to present-day relational confusion to the questions that are coming whether we are ready for them or not.
+      </p>
+      <p class="about-body">
+        The method is genealogy as critique: tracing where concepts came from, exposing the assumptions baked into their origins, and using that excavation to imagine things differently. Most people who write about the future of sex start from the present and project forward. This project uses the past to defamiliarize the present so the future becomes imaginable differently.
+      </p>
+      <p class="about-body" style="font-style:italic; color:var(--gold-dim); font-size:0.9rem;">
+        Good sex and good relationships require a shared operating language. This lexicon is a tool for building one.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="maybeCloseModal(event)">
+  <div class="modal-card" id="modalCard">
+    <button class="modal-close" onclick="closeModal()">close ✕</button>
+
+    <div class="modal-cat" id="modalCat"></div>
+    <h2 class="modal-word" id="modalWord"></h2>
+    <p class="modal-pos"   id="modalPos"></p>
+    <p class="modal-pron"  id="modalPron"></p>
+
+    <div class="modal-divider"></div>
+
+    <div class="modal-sec">
+      <div class="modal-sec-label">In Brief</div>
+      <p class="modal-brief" id="modalBrief"></p>
+    </div>
+    <div class="modal-sec">
+      <div class="modal-sec-label">Origins</div>
+      <p class="modal-body" id="modalOrigins"></p>
+    </div>
+    <div class="modal-sec">
+      <div class="modal-sec-label">What it means in practice</div>
+      <p class="modal-body" id="modalPractice"></p>
+    </div>
+    <div class="modal-sec">
+      <div class="modal-sec-label">Where it gets complicated</div>
+      <p class="modal-body" id="modalComplicated"></p>
+    </div>
+    <div class="modal-sec">
+      <div class="modal-sec-label">Also see</div>
+      <div class="also-see-list" id="modalAlsoSee"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-ornament">
+    <div class="deco-diamond jade"></div>
+    <div class="deco-diamond gold"></div>
+    <div class="deco-diamond maroon"></div>
+  </div>
+  <p class="footer-text">The Lexicon — sexphilosopher.com — a living document, last updated May 2026</p>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════
+   ENTRIES DATABASE
+═══════════════════════════════════════════════ */
+const entries = [
+  {
+    word:"Love", pos:"noun, verb", pron:"lʌv", cat:"I", catLabel:"Relational Structures & Labels", isNew:false,
+    brief:"The most universally claimed and least universally defined concept in human experience. Everyone is certain they know what it means. No two people mean the same thing.",
+    origins:"Old English lufu, from Proto-Germanic *lubō. Where English has one word, ancient Greek had nine: eros (passionate desire), philia (deep friendship), storge (familial affection), agape (unconditional love), pragma (enduring commitment), ludus (playful affection), mania (obsessive attachment), philautia (self-love), and xenia (hospitality). The reduction to one word is not a simplification. It is an erasure of an entire taxonomy.",
+    practice:"Most relational conflict attributed to 'love' is actually a mismatch of which kind of love two people are talking about. One person means eros; the other means pragma. Both say 'I love you.' Neither knows the conversation has already failed. Fromm argued in The Art of Loving (1956) that love is not a feeling but a practice — requiring care, responsibility, respect, and knowledge. Pop culture disagrees with him and this is most of the problem.",
+    complicated:"The love languages framework (Chapman) is Fromm made accessible and partially stripped of rigor. Useful for practical communication, limited as a philosophical framework. The Chinese concept of ai (愛) is demonstrated through action rather than declaration — 'did you eat yet?' as an expression of love that has no obvious English translation. The single word 'love' does not have room for this.",
+    alsoSee:["Limerence","Desire","Romantic","Attachment"]
+  },
+  {
+    word:"Desire", pos:"noun, verb", pron:"dɪˈzʌɪə", cat:"II", catLabel:"Experiential & Phenomenological", isNew:false,
+    brief:"What you want when you want it — except most people's desire doesn't work the way they've been told it should, and they spend years concluding something is wrong with them.",
+    origins:"From Latin desiderare, possibly from de- (down from) + sidus (star) — a longing for what has fallen from the stars, or what you are missing from your reckoning. The etymology already understands absence as its structure.",
+    practice:"Rosemary Basson's responsive desire model (2000) is the most clinically significant piece of information most people never encounter outside a therapist's office. The dominant cultural narrative assumes desire arrives spontaneously. Basson's research found that for many people, desire is responsive: it emerges in response to arousal, not before it. Waiting to feel desire before engaging with a partner is, for this profile, waiting for something that arrives after the thing you're waiting for.",
+    complicated:"The spontaneous/responsive distinction has been widely adopted in clinical sex therapy and almost entirely absent from popular discourse. The result is that an enormous number of people have concluded they have a desire problem when they have a desire model mismatch.",
+    alsoSee:["Limerence","Erotic","Basson's Model"]
+  },
+  {
+    word:"Consent", pos:"noun, verb", pron:"ˈkɒnsɛnt", cat:"III", catLabel:"Practices & Philosophies", isNew:true,
+    brief:"The minimum viable condition for ethical sex, consistently mistaken for the whole thing.",
+    origins:"From Latin consentire — con (together) + sentire (to feel). To feel together. The legal and cultural evolution has stripped the etymology almost entirely: consent in practice has become a yes/no transaction rather than a mutual orientation. The word means something much richer than its current use.",
+    practice:"The enthusiastic consent framework expands the binary into ongoing, affirmative, reversible engagement. You can consent at 9pm and withdraw at 10pm. Consent as culture — the idea that it is an ongoing relational practice rather than a single moment of permission — is where the conversation is going and largely hasn't arrived yet in mainstream discourse.",
+    complicated:"The transactional model of consent is better than what preceded it and significantly worse than what's needed. BDSM communities have in many respects more sophisticated consent cultures than mainstream discourse — an irony that gets buried.",
+    alsoSee:["Kink","Boundaries","Enthusiastic Consent"]
+  },
+  {
+    word:"Limerence", pos:"noun", pron:"ˈlɪm.ər.əns", cat:"II", catLabel:"Experiential & Phenomenological", isNew:true,
+    brief:"The obsessive early attachment state most people spend their entire lives calling love. It is not love. It has a neurochemical lifespan. It ends.",
+    origins:"Coined by psychologist Dorothy Tennov in 1979 in Love and Limerence: The Experience of Being in Love. Tennov invented the word because no existing term captured the involuntary, intrusive, obsessive quality of the state.",
+    practice:"Limerence is characterized by intrusive thinking about the limerent object, acute sensitivity to their responses, intense fear of rejection. It typically lasts 18 months to three years. The neurochemical profile resembles OCD. When it ends — as it always does — many people mistake the ending for the relationship failing, rather than recognizing that the relationship is now beginning.",
+    complicated:"Limerence and love are frequently confused because limerence feels more intense than most love experiences. The distinction matters enormously for relationship decision-making: commitments made during limerence are made under neurological conditions that do not persist.",
+    alsoSee:["Love","Attachment","Desire","Parasocial Relationship"]
+  },
+  {
+    word:"Erotic", pos:"adjective, noun", pron:"ɪˈrɒtɪk", cat:"II", catLabel:"Experiential & Phenomenological", isNew:false,
+    brief:"Not what pornography is. Not simply what is sexually arousing. Something older, more embodied, and far more politically significant than either.",
+    origins:"From Greek eros — the god of love and desire. Eros in Plato's Symposium is not merely sexual: it is the engine of all creation, the longing that moves humans toward beauty, truth, and the good. The reduction of erotic to 'sexually stimulating' is a recent and impoverished narrowing.",
+    practice:"Audre Lorde's 1978 essay 'Uses of the Erotic: The Erotic as Power' is the most important text most people have never read. Lorde argues that the erotic is a deep knowledge of the self, a capacity for feeling in its fullest sense. To suppress the erotic is to suppress self-knowledge.",
+    complicated:"The erotic/pornographic distinction is one Lorde draws sharply: pornography is sensation without feeling, the erotic is feeling embodied. The distinction is not about content but about the relationship of the person to the experience.",
+    alsoSee:["Desire","Sensual","Pornography"]
+  },
+  {
+    word:"Hysteria", pos:"noun", pron:"hɪˈstɪəriə", cat:"V", catLabel:"Historical & Theoretical", isNew:false,
+    brief:"A diagnosis invented to medicalize inconvenient female behavior. The organizing question it raises has never been answered: who gets to be a sexual being, and who decides?",
+    origins:"From Greek hystera — uterus. The ancient Greeks believed an unsatisfied, 'wandering' uterus caused irrational behavior in women. The diagnosis persisted in Western medicine until 1980, when it was removed from the DSM. Two thousand years of medical consensus. The treatment for centuries was 'pelvic massage' administered by physicians — which is to say, externally-induced orgasm, not named as such.",
+    practice:"The hysteria throughline is the conceptual anchor for understanding how medical authority has been used to regulate female sexuality across time. The pattern is consistent: female sexual experience that doesn't serve patriarchal structures gets classified as pathology. What changes is the vocabulary.",
+    complicated:"The line from hysteria to contemporary sex tech is direct and underexamined. Vibrators were invented as medical instruments for administering the 'treatment' for hysteria at scale. The same device, two centuries later, is a billion-dollar consumer wellness product. The technology did not change the politics; it changed the ownership.",
+    alsoSee:["Medicalization","Basson's Model","Orgasm Gap","Sex Tech"]
+  },
+  {
+    word:"Kink", pos:"noun", pron:"kɪŋk", cat:"III", catLabel:"Practices & Philosophies", isNew:false,
+    brief:"Sexual interests outside what is statistically common — which includes more people than will ever admit it in polite company.",
+    origins:"From Dutch kink — a twist in a rope. The clinical literature prefers 'paraphilia' (from Greek para, beyond, + philia, attraction) — but paraphilia carries a pathologizing history that kink communities have largely rejected.",
+    practice:"The buried research on kink practitioners is one of the field's more significant ironies: studies consistently show that people who engage in consensual BDSM and kink practices tend to have better communication skills and higher relationship satisfaction than the general population.",
+    complicated:"The line between kink and pathology is drawn differently by clinicians, communities, and individuals. The DSM distinguishes between paraphilias (unusual interests) and paraphilic disorders (interests that cause harm or distress) — a distinction that matters and often gets lost.",
+    alsoSee:["BDSM","Consent","Paraphilia"]
+  },
+  {
+    word:"Romantic", pos:"adjective", pron:"rəʊˈmantɪk", cat:"I", catLabel:"Relational Structures & Labels", isNew:false,
+    brief:"Not a synonym for loving or intimate. A specific cultural inheritance from medieval troubadours who wrote about longing, suffering, and adultery — and somehow this became the template for healthy partnership.",
+    origins:"From the troubadour tradition of 11th–13th century Occitania: courtly love poetry celebrating desire for an unattainable beloved, typically someone else's spouse. The genre was built on impossibility, longing, and the ennobling power of suffering. This is the origin of the romantic ideal. It was not designed as a model for stable partnership.",
+    practice:"The romantic/erotic/intimate distinction is one most people haven't consciously made. Romantic refers to a cultural script of pursuit, gesture, and longing. Erotic refers to embodied desire. Intimate refers to mutual self-disclosure. A relationship can be deeply intimate without being particularly romantic.",
+    complicated:"Romantic love as the basis for long-term partnership is historically very recent — roughly 200 years old in mainstream Western culture. The expectation that one person will be simultaneously your romantic ideal, erotic partner, best friend, co-parent, and financial partner across 50+ years is, historically speaking, an experiment. The results are mixed.",
+    alsoSee:["Love","Erotic","Intimacy","Limerence"]
+  },
+  {
+    word:"Intimacy", pos:"noun", pron:"ˈɪntɪməsi", cat:"I", catLabel:"Relational Structures & Labels", isNew:false,
+    brief:"The experience of being known — not seen, not desired, not admired. Known. Most people are terrified of it and spend considerable energy pursuing its simulacra instead.",
+    origins:"From Latin intimus — innermost, superlative of inter (within). The innermost thing. Not surface, not performance, not even affection — the place underneath all of that.",
+    practice:"The capacity for intimacy requires a stable enough sense of self to risk real self-disclosure — to let someone see what's actually there without performing a version of it. Schnarch's differentiation model argues that most people achieve pseudo-intimacy: the feeling of closeness without the actual risk of being known.",
+    complicated:"Digital mediation has created new forms of apparent intimacy that may or may not constitute the real thing. AI companionship raises the same question acutely: can intimacy exist with an entity that cannot be changed by you?",
+    alsoSee:["Vulnerability","Differentiation","Parasocial Relationship"]
+  },
+  {
+    word:"Tantra", pos:"noun", pron:"ˈtantrə", cat:"III", catLabel:"Practices & Philosophies", isNew:false,
+    brief:"Three completely different things currently sharing one word, and the gap between them is not a minor detail.",
+    origins:"From Sanskrit tantra — loom, weave, system. Traditional Tantra is a Hindu and Buddhist ritual tradition dating to approximately the 5th century CE. It was never principally about sex. Western practitioners encountered it in the 19th century and found the sexual elements more interesting than the rest.",
+    practice:"The three versions: Traditional Tantra (complex Hindu/Buddhist ritual systems; sexuality is one small element); Neo-Tantra (1960s–70s Western repackaging that extracted and amplified the sexual elements); Pop Tantra (slow sex, prolonged arousal, spiritual connection — what most people currently mean). All three are real. Almost nobody names which one they mean.",
+    complicated:"The commercialization of Tantra — particularly in the wellness space — has created a landscape where the word now primarily functions as branding. This does not make the practices invalid; it makes the vocabulary unreliable.",
+    alsoSee:["Somatic Work","Kink","Erotic"]
+  },
+  {
+    word:"Vulva", pos:"noun", pron:"ˈvʌlvə", cat:"IV", catLabel:"Anatomy & Physiology", isNew:false,
+    brief:"The external genitalia of people with this anatomy. Not the vagina. The two words refer to different structures. The confusion is not minor — it has measurable consequences for health communication.",
+    origins:"From Latin vulva — womb, covering. The vagina, from Latin vagina — sheath, scabbard — refers to the internal canal. Two distinct anatomical structures with two distinct names, one of which is systematically used to refer to both.",
+    practice:"The cultural default of 'vagina' to refer to all female genitalia means that most people with vulvas grew up without an accurate word for their own external anatomy. The consequences include difficulty describing symptoms to medical providers, reduced body literacy. You cannot advocate for your own health using inaccurate vocabulary.",
+    complicated:"The misuse is so pervasive that correcting it reads as pedantic. It is not pedantic — it is a literacy issue with real medical stakes. The same imprecision does not exist for the analogous structures in male anatomy. The asymmetry is not coincidental.",
+    alsoSee:["Clitoris","Body Literacy","Orgasm Gap"]
+  },
+  {
+    word:"Clitoris", pos:"noun", pron:"ˈklɪtərɪs", cat:"IV", catLabel:"Anatomy & Physiology", isNew:false,
+    brief:"An organ that exists entirely for pleasure, whose full structure was not accurately mapped until 1998. Medicine had other priorities.",
+    origins:"From Greek kleitoris. Known to anatomists since the 16th century. Consistently misrepresented, minimized, or simply ignored across medical history. The full internal structure was not documented with MRI imaging until Australian urologist Helen O'Connell's 1998 research.",
+    practice:"The clitoris is the only human organ whose sole documented function is pleasure. The internal structure means that 'internal' orgasms are, in many cases, clitoral orgasms reached through internal stimulation of the clitoral network — a reframe that resolves decades of confusion about vaginal vs. clitoral orgasm as a binary.",
+    complicated:"The centuries-long medical neglect of accurate clitoral anatomy is not a neutral oversight. O'Connell's 1998 paper was not controversial — it was simply new information. The question of why it took until 1998 is more interesting than the answer.",
+    alsoSee:["Vulva","Orgasm Gap","Body Literacy"]
+  },
+  {
+    word:"Dating", pos:"noun, verb", pron:"ˈdeɪtɪŋ", cat:"I", catLabel:"Relational Structures & Labels", isNew:false,
+    brief:"A word everyone uses and almost no one defines. Two people can be 'dating' for months while holding entirely different models of what that means.",
+    origins:"A distinctly 20th-century American concept. Before the early 1900s, courtship happened in the home under parental supervision. The shift to public, commercial courtship spaces (movies, restaurants, dances) created the need for a new vocabulary. 'Dating' is barely 120 years old.",
+    practice:"The contemporary meaning of 'dating' contains no agreed-upon status. Are you exclusive? Are you still on apps? 'We're dating' answers none of these questions, and every person in the room has a different assumption about which questions it answers.",
+    complicated:"App-mediated dating has accelerated the vocabulary collapse. Situationship, talking, hanging out, seeing each other — the proliferation of semi-terms suggests a genuine cultural need for more precise relational vocabulary that the mainstream has not yet provided.",
+    alsoSee:["Romantic","Situationship","Commitment"]
+  },
+  {
+    word:"Compersion", pos:"noun", pron:"kəmˈpɜːʃən", cat:"II", catLabel:"Experiential & Phenomenological", isNew:true,
+    brief:"The pleasure you feel in your partner's pleasure with someone else. Frequently called the opposite of jealousy, which is not quite right but is close enough to be useful.",
+    origins:"Coined in the Kerista commune in San Francisco in the 1970s–80s. The community needed a word for an experience that had no name in mainstream culture because mainstream culture did not validate the experience as possible.",
+    practice:"Compersion is not the absence of jealousy — both can exist simultaneously. It is a distinct positive emotional response: the genuine pleasure of witnessing a partner's joy or intimacy with another person. Polyamorous communities use it regularly; monogamous couples occasionally experience it without a word for it.",
+    complicated:"Compersion is sometimes presented in ENM spaces as an ideal state to be achieved — something you should feel. This framing creates its own problems. Jealousy is not a character flaw; compersion is not an achievement. Both are emotional information.",
+    alsoSee:["Jealousy","Polyamory","Attachment"]
+  },
+  {
+    word:"Basson's Model", pos:"proper noun", pron:"ˈbasənz ˈmɒdəl", cat:"V", catLabel:"Historical & Theoretical", isNew:false,
+    brief:"The clinical framework that explains why many people's desire works nothing like the way they've been told it should — and why this is not a problem.",
+    origins:"Developed by Canadian psychiatrist Rosemary Basson in a 2000 paper. Basson's model challenged the linear Masters & Johnson sexual response cycle by proposing that for many people, desire is often responsive rather than spontaneous — arising in the context of arousal rather than preceding it.",
+    practice:"If you wait to feel desire before engaging in sexual activity, and your desire profile is responsive, you may be waiting for something that only arrives after you've already begun. This is not a failure of desire — it is a different architecture of desire.",
+    complicated:"Basson's model has been widely adopted in sex therapy and is almost entirely unknown outside clinical contexts. The Masters & Johnson linear model remains the cultural default, meaning the majority of people with responsive desire patterns have received no framework that validates their experience.",
+    alsoSee:["Desire","Spontaneous Desire","Responsive Desire","Masters & Johnson"]
+  }
+];
+
+/* ═══════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════ */
+let currentFilter = 'all';
+let currentSearch = '';
+let currentGameEntry = null;
+
+/* ═══════════════════════════════════════════════
+   BROWSE / CARDS
+═══════════════════════════════════════════════ */
+function renderCards() {
+  const grid = document.getElementById('cardGrid');
+  const nf   = document.getElementById('notFound');
+  const cnt  = document.getElementById('entry-count');
+
+  let list = entries.slice();
+  if (currentFilter !== 'all') list = list.filter(e => e.cat === currentFilter);
+  if (currentSearch)           list = list.filter(e =>
+    e.word.toLowerCase().includes(currentSearch) ||
+    e.brief.toLowerCase().includes(currentSearch) ||
+    e.catLabel.toLowerCase().includes(currentSearch)
+  );
+
+  grid.innerHTML = '';
+
+  if (!list.length) {
+    nf.classList.add('show');
+    cnt.textContent = '0 entries';
+    document.getElementById('submitWord').value = currentSearch;
+    return;
+  }
+
+  nf.classList.remove('show');
+  cnt.textContent = list.length === entries.length
+    ? `${entries.length} entries`
+    : `${list.length} of ${entries.length} entries`;
+
+  list.forEach((e, i) => {
+    const d = document.createElement('div');
+    d.className = 'entry-card';
+    d.dataset.cat = e.cat;
+    d.style.animationDelay = `${i * 0.035}s`;
+    d.onclick = () => openModal(e);
+    d.innerHTML = `
+      ${e.isNew ? '<span class="new-badge">New</span>' : ''}
+      <div class="card-tag">
+        <div class="tag-gem"></div>
+        <span class="tag-label">${e.catLabel}</span>
+      </div>
+      <h3 class="card-word">${e.word}</h3>
+      <p class="card-pos">${e.pos}</p>
+      <p class="card-brief">${e.brief}</p>
+      <div class="card-cta">Read entry</div>
+    `;
+    grid.appendChild(d);
+  });
+}
+
+function filterCat(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards();
+}
+
+function handleSearch(val) {
+  currentSearch = val.trim().toLowerCase();
+  renderCards();
+}
+
+function handleSubmit() {
+  const w = document.getElementById('submitWord').value.trim();
+  if (!w) return;
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Submitted — thank you';
+  btn.style.color = 'var(--jade-light)';
+  btn.style.borderColor = 'var(--jade)';
+  setTimeout(() => {
+    btn.textContent = 'Submit for consideration';
+    btn.style.color = btn.style.borderColor = '';
+    document.getElementById('submitWord').value = '';
+    document.getElementById('submitWhy').value  = '';
+  }, 3000);
+}
+
+/* ═══════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════ */
+function openModal(e) {
+  const mc = document.getElementById('modalCard');
+  mc.dataset.cat = e.cat;
+
+  const gems = { I:'var(--tag-I)', II:'var(--tag-II)', III:'var(--tag-III)', IV:'var(--tag-IV)', V:'var(--tag-V)' };
+  document.getElementById('modalCat').innerHTML =
+    `<div class="tag-gem" style="background:${gems[e.cat]};width:5px;height:5px;transform:rotate(45deg);flex-shrink:0;"></div>
+     <span class="modal-cat-label">${e.catLabel}</span>`;
+  document.getElementById('modalWord').textContent = e.word;
+  document.getElementById('modalPos').textContent  = e.pos;
+  document.getElementById('modalPron').textContent = `/ ${e.pron} /`;
+  document.getElementById('modalBrief').textContent      = e.brief;
+  document.getElementById('modalOrigins').textContent    = e.origins;
+  document.getElementById('modalPractice').textContent   = e.practice;
+  document.getElementById('modalComplicated').textContent = e.complicated;
+
+  const as = document.getElementById('modalAlsoSee');
+  as.innerHTML = e.alsoSee.map(w =>
+    `<button class="also-see-pill" onclick="crossRef('${w}')">${w}</button>`
+  ).join('');
+
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function crossRef(word) {
+  closeModal();
+  const found = entries.find(e => e.word.toLowerCase() === word.toLowerCase());
+  if (found) { setTimeout(() => openModal(found), 300); }
+  else {
+    document.getElementById('searchInput').value = word;
+    handleSearch(word);
+  }
+}
+
+function maybeCloseModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ═══════════════════════════════════════════════
+   GAME — ONE PER DAY
+═══════════════════════════════════════════════ */
+const gamePool = [
+  {
+    word: "Limerence",
+    def: "The obsessive, intrusive, neurochemically distinct state of early attachment that most people spend their entire lives calling love — and that always, without exception, ends.",
+    options: ["Love", "Obsession", "Limerence", "Mania", "Attachment"]
+  },
+  {
+    word: "Compersion",
+    def: "The pleasure you feel when your partner experiences joy or intimacy with someone else. Frequently called the opposite of jealousy. This is not quite accurate but close enough to be useful.",
+    options: ["Empathy", "Compersion", "Altruism", "Jealousy"]
+  },
+  {
+    word: "Desire",
+    def: "For many people, wanting arrives after engagement — not before. Which means those who wait to feel it first are waiting for the wrong signal.",
+    options: ["Spontaneous Arousal", "Lust", "Desire", "Low Libido", "Intimacy"]
+  },
+  {
+    word: "Hysteria",
+    def: "A medical diagnosis applied almost exclusively to women for over two thousand years. The 'treatment,' administered by physicians, was never named for what it was.",
+    options: ["Neurasthenia", "Hysteria", "Melancholy", "Conversion Disorder"]
+  },
+  {
+    word: "Tantra",
+    def: "A 5th-century Hindu and Buddhist ritual tradition in which sexuality is one small element — now primarily understood in the West as slow sex and spiritual connection.",
+    options: ["Kama Sutra", "Tantra", "Neo-Tantra", "Sacred Sexuality"]
+  },
+  {
+    word: "Consent",
+    def: "From the Latin 'to feel together.' Currently understood as a transaction. Originally meant as an orientation.",
+    options: ["Agreement", "Permission", "Consent", "Assent", "Compliance"]
+  },
+  {
+    word: "Romantic",
+    def: "A cultural ideal descended directly from medieval poetry about longing for someone else's spouse. Later repurposed as a model for stable partnership.",
+    options: ["Passionate", "Romantic", "Amorous", "Courtly", "Intimate"]
+  }
+];
+
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
+}
+
+function getDayEntry() {
+  const dayNum = Math.floor(Date.now() / 86400000);
+  return gamePool[dayNum % gamePool.length];
+}
+
+function formatDate() {
+  return new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+}
+
+function loadGame() {
+  const g = getDayEntry();
+  currentGameEntry = entries.find(e => e.word === g.word) || null;
+
+  document.getElementById('gameDate').textContent = formatDate();
+  document.getElementById('gameDef').textContent  = g.def;
+
+  const alreadyKey = 'game-played-' + todayKey();
+  const played = sessionStorage.getItem(alreadyKey);
+
+  const optsEl   = document.getElementById('gameOpts');
+  const verdict  = document.getElementById('gameVerdict');
+  const readLink = document.getElementById('gameReadLink');
+  const already  = document.getElementById('gameAlready');
+
+  verdict.classList.remove('show');
+  readLink.classList.remove('show');
+  already.style.display = 'none';
+  optsEl.innerHTML = '';
+
+  if (played) {
+    // Already answered today — show result but no re-play
+    const wasCorrect = played === 'correct';
+    already.style.display = 'block';
+    already.innerHTML = `You've already played today. Come back tomorrow for a new word.<br><br>
+      <span style="color:${wasCorrect ? 'var(--jade-light)' : 'var(--maroon-light)'}">
+        ${wasCorrect ? `You got it — the word was ${g.word}.` : `The word was ${g.word}.`}
+      </span>`;
+    if (currentGameEntry) {
+      readLink.classList.add('show');
+      verdict.textContent = '';
+    }
+    return;
+  }
+
+  // Shuffle options
+  const shuffled = [...g.options].sort(() => Math.random() - 0.5);
+  shuffled.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'game-opt';
+    btn.textContent = opt;
+    btn.onclick = () => answerGame(opt, g.word, g.options);
+    optsEl.appendChild(btn);
+  });
+}
+
+function answerGame(chosen, correct, allOptions) {
+  // Lock all buttons
+  document.querySelectorAll('.game-opt').forEach(b => {
+    b.disabled = true;
+    if (b.textContent === correct) b.classList.add('correct');
+    else if (b.textContent === chosen && chosen !== correct) b.classList.add('wrong');
+  });
+
+  const isCorrect = chosen === correct;
+  const verdict   = document.getElementById('gameVerdict');
+  const readLink  = document.getElementById('gameReadLink');
+
+  verdict.textContent = isCorrect
+    ? `Yes — ${correct}. Read the full entry to understand why it matters.`
+    : `The word is ${correct}. Getting it wrong is the whole point.`;
+  verdict.classList.add('show');
+
+  if (currentGameEntry) {
+    readLink.classList.add('show');
+  }
+
+  sessionStorage.setItem('game-played-' + todayKey(), isCorrect ? 'correct' : 'wrong');
+}
+
+function openEntryFromGame() {
+  if (currentGameEntry) openModal(currentGameEntry);
+}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+function showSection(name, el) {
+  document.getElementById('sec-browse').style.display = name === 'browse' ? 'block' : 'none';
+  document.getElementById('sec-game').style.display   = name === 'game'   ? 'block' : 'none';
+  document.getElementById('sec-about').style.display  = name === 'about'  ? 'block' : 'none';
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  if (el) el.classList.add('active');
+  if (name === 'game') loadGame();
+}
+
+/* ── INIT ── */
+renderCards();
+</script>
+</body>
+</html>
