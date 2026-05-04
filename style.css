@@ -158,6 +158,26 @@ main {
   padding: 3.5rem 2rem 7rem;
 }
 
+.home-intro {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.home-intro p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--cream-dim);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.home-intro p:first-child {
+  font-size: 1.3rem;
+  color: var(--cream);
+  font-style: italic;
+}
+
 /* ── GAME SECTION ── */
 .game-wrap { max-width: 700px; margin: 0 auto 5rem; }
 
