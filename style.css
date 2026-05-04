@@ -85,8 +85,8 @@ header {
 
 .site-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 200;
+  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  font-weight: 250;
   letter-spacing: 0.08em;
   color: var(--white);
   line-height: 1;
@@ -174,8 +174,7 @@ main {
 
 .home-intro p:first-child {
   font-size: 1.3rem;
-  color: var(--cream);
-  font-style: italic;
+  color: var(--white);
 }
 
 /* ── GAME SECTION ── */
