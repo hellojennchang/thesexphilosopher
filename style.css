@@ -85,7 +85,7 @@ header {
 
 .site-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+  font-size: clamp(2rem, 4.2vw, 4rem);
   font-weight: 250;
   letter-spacing: 0.08em;
   color: var(--white);
