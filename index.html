@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions of Love</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@100;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="corner-ornament tl"></div>
+  <div class="corner-ornament tr"></div>
+  <div class="corner-ornament bl"></div>
+  <div class="corner-ornament br"></div>
+
+  <p class="site-eyebrow">thesexphilosopher.com</p>
+  <div class="deco-line"><div class="deco-diamond"></div></div>
+  <h1 class="site-title">Terms and Conditions of <em>Love</em></h1>
+  <div class="deco-line"><div class="deco-diamond"></div></div>
+  <p class="site-subtitle">A Perfectly Inadequate Guide to Human Sexuality and Other Confusing Things</p>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-link active" onclick="showSection('game', this)">Name That Feeling</a>
+  <div class="nav-dot"></div>
+  <a class="nav-link" onclick="showSection('browse', this)">Browse</a>
+  <div class="nav-dot"></div>
+  <a class="nav-link" onclick="showSection('about', this)">About</a>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+  <!-- NAME THAT FEELING — shown first -->
+  <section id="sec-game">
+    <div class="game-wrap">
+      <div class="game-panel">
+        <p class="game-eyebrow">Name That Feeling</p>
+        <p class="game-date" id="gameDate"></p>
+        <p class="game-prompt">What is the word for this?</p>
+        <p class="game-definition" id="gameDefinition"></p>
+        <div class="game-options" id="gameOptions"></div>
+        <div class="game-result">
+          <p class="game-verdict" id="gameVerdict"></p>
+          <button class="game-read-btn" id="gameReadBtn" onclick="openEntryFromGame()">Read the full entry</button>
+        </div>
+        <div class="game-already" id="gameAlready"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE — hidden by default -->
+  <section id="sec-browse" style="display:none;">
+
+    <div class="search-section">
+      <span class="search-label">find a word</span>
+      <div class="search-wrapper">
+        <input class="search-input" id="searchInput" type="text"
+          placeholder="desire, limerence, consent…"
+          oninput="handleSearch(this.value)" autocomplete="off">
+        <span class="search-icon">◆</span>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <span class="filter-label">browse by section</span>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-cat="all"  onclick="filterCat('all', this)">All Entries</button>
+        <button class="filter-tab" data-cat="I"           onclick="filterCat('I', this)">I — Relational</button>
+        <button class="filter-tab" data-cat="II"          onclick="filterCat('II', this)">II — Experiential</button>
+        <button class="filter-tab" data-cat="III"         onclick="filterCat('III', this)">III — Practices</button>
+        <button class="filter-tab" data-cat="IV"          onclick="filterCat('IV', this)">IV — Anatomy</button>
+        <button class="filter-tab" data-cat="V"           onclick="filterCat('V', this)">V — Historical</button>
+      </div>
+    </div>
+
+    <div class="deco-divider">
+      <div class="deco-divider-inner">
+        <div class="mini-diamond"></div>
+        <span id="entry-count">15 entries</span>
+        <div class="mini-diamond"></div>
+      </div>
+    </div>
+
+    <div class="card-grid" id="cardGrid"></div>
+
+    <div class="not-found" id="notFound">
+      <p class="not-found-title">That word isn't here yet.</p>
+      <p class="not-found-body">The gap is the point. If you're looking for something that doesn't exist here, that absence is worth naming. Submit it — it becomes the next entry.</p>
+      <div class="submit-form">
+        <input class="submit-input" id="submitWord" type="text" placeholder="the word you needed">
+        <input class="submit-input" id="submitWhy"  type="text" placeholder="what you were trying to say">
+        <button class="submit-btn" onclick="handleSubmit()">Submit for consideration</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT — hidden by default -->
+  <section id="sec-about" style="display:none;">
+    <div class="about-wrap">
+
+      <div style="text-align:center; margin-bottom: 3rem;">
+        <div class="deco-line" style="margin-bottom:1.5rem;"><div class="deco-diamond"></div></div>
+        <h2 class="about-title">About this guide</h2>
+        <div class="deco-line"><div class="deco-diamond"></div></div>
+      </div>
+
+      <p class="about-pullquote">
+        "A girl who was trying to figure out life and love and relationships and started asking a shit ton of questions. The more questions I asked, the more questions I got. Everybody had a different version, and every community had a different version — and so hence this lexicon was born."
+      </p>
+
+      <p class="about-body">
+        You ever think you're talking about the same thing and it turns out you're absolutely not?
+      </p>
+
+      <p class="about-body">
+        Let's get on the same page — or at least try to. This is a guide nobody asked for but everybody needs. Good sex and good relationships require a shared operating language. This lexicon is a tool for building one.
+      </p>
+
+      <p class="about-body">
+        This is not a glossary. It is a philosophical map that connects ancient wisdom traditions to present-day relational confusion to the questions that are coming whether we are ready for them or not. The method is genealogy as critique: tracing where concepts came from, exposing the assumptions baked into their origins, and using that excavation to imagine things differently.
+      </p>
+
+      <div class="about-section-title">How this is organized</div>
+
+      <div class="about-cat-item">
+        <p class="about-cat-name">I — Relational Structures & Labels</p>
+        <p class="about-cat-desc">The words we use to organize who we are to each other — and why they mean something different to everyone in the room.</p>
+      </div>
+
+      <div class="about-cat-item">
+        <p class="about-cat-name">II — Experiential & Phenomenological</p>
+        <p class="about-cat-desc">Words for what you feel that you probably don't have a name for yet.</p>
+      </div>
+
+      <div class="about-cat-item">
+        <p class="about-cat-name">III — Practices & Philosophies</p>
+        <p class="about-cat-desc">How people approach sex and connection — the methodologies, frameworks, and schools of thought.</p>
+      </div>
+
+      <div class="about-cat-item">
+        <p class="about-cat-name">IV — Anatomy & Physiology</p>
+        <p class="about-cat-desc">The body, named correctly, which turns out to matter more than you'd think.</p>
+      </div>
+
+      <div class="about-cat-item">
+        <p class="about-cat-name">V — Historical & Theoretical</p>
+        <p class="about-cat-desc">Where the ideas came from, who built them, and what they were trying to control.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="maybeClose(event)">
+  <div class="modal-card" id="modalCard">
+    <button class="modal-close" onclick="closeModal()">close ✕</button>
+    <div class="modal-cat" id="modalCat"></div>
+    <h2 class="modal-word" id="modalWord"></h2>
+    <p class="modal-meta" id="modalMeta"></p>
+    <p class="modal-pronunciation" id="modalPron"></p>
+    <div class="modal-divider"></div>
+    <div class="modal-section">
+      <div class="modal-section-label">In Brief</div>
+      <p class="modal-brief" id="modalBrief"></p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Origins</div>
+      <p class="modal-body" id="modalOrigins"></p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">What it means in practice</div>
+      <p class="modal-body" id="modalPractice"></p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Where it gets complicated</div>
+      <p class="modal-body" id="modalComplicated"></p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-label">Also see</div>
+      <div class="modal-also-see" id="modalAlsoSee"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-deco"><div class="deco-diamond"></div></div>
+  <p class="footer-text">Terms and Conditions of Love — thesexphilosopher.com — a living document, last updated May 2026</p>
+</footer>
+
+<!-- DATA then LOGIC — order matters -->
+<script src="entries.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
