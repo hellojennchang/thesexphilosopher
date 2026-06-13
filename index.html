@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sex Philosopher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:        #1a1612;
+      --parchment:  #f5f0e8;
+      --gold:       #b8986a;
+      --gold-light: #d4b88a;
+      --muted:      #7a6e62;
+      --rule:       rgba(184, 152, 106, 0.4);
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--parchment);
+      color: var(--ink);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Deco frame ── */
+    .frame {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      padding: 3.5rem 3rem 3rem;
+      text-align: center;
+    }
+
+    /* Corner ornaments */
+    .frame::before,
+    .frame::after,
+    .corner-bl,
+    .corner-br {
+      content: '';
+      position: absolute;
+      width: 28px;
+      height: 28px;
+    }
+    .frame::before  { top: 0;    left: 0;    border-top: 1.5px solid var(--gold); border-left: 1.5px solid var(--gold); }
+    .frame::after   { top: 0;    right: 0;   border-top: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold); }
+    .corner-bl      { bottom: 0; left: 0;    border-bottom: 1.5px solid var(--gold); border-left: 1.5px solid var(--gold); }
+    .corner-br      { bottom: 0; right: 0;   border-bottom: 1.5px solid var(--gold); border-right: 1.5px solid var(--gold); }
+
+    /* ── Diamond rule ── */
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .rule-line {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .rule-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ── Wordmark ── */
+    .wordmark {
+      margin-bottom: 0.25rem;
+    }
+    .wordmark-the {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .wordmark-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 7vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+    .wordmark-title em {
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* ── Middle rule ── */
+    .rule-mid {
+      margin: 1.5rem auto 1.5rem;
+      width: 80px;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    /* ── Status line ── */
+    .status {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 360px;
+      margin: 0 auto 2.2rem;
+    }
+
+    /* ── Bottom rule ── */
+    .rule-bottom {
+      margin-bottom: 2rem;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      background: var(--ink);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .cta:hover {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    /* ── Footer note ── */
+    .foot {
+      margin-top: 2.4rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 420px) {
+      .frame {
+        padding: 3rem 1.75rem 2.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .frame {
+        animation: fadeUp 0.8s ease both;
+      }
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frame">
+    <div class="corner-bl"></div>
+    <div class="corner-br"></div>
+
+    <div class="rule">
+      <div class="rule-line"></div>
+      <div class="rule-diamond"></div>
+      <div class="rule-line"></div>
+    </div>
+
+    <div class="wordmark">
+      <span class="wordmark-the">The</span>
+      <div class="wordmark-title">Sex <em>Philosopher</em></div>
+    </div>
+
+    <div class="rule-mid"></div>
+
+    <p class="status">in the works</p>
+
+    <p class="tagline">
+      a lexicon or sorts.
+    </p>
+
+    <div class="rule rule-bottom">
+      <div class="rule-line"></div>
+      <div class="rule-diamond"></div>
+      <div class="rule-line"></div>
+    </div>
+
+    <a class="cta" href="https://substack.com/@hellojennchang" target="_blank" rel="noopener">
+      Read in the meantime
+    </a>
+
+    <p class="foot">thesexphilosopher.com</p>
+  </div>
+
+</body>
+</html>
